@@ -11,7 +11,7 @@ github_repo: "https://github.com/lucienhsu/lucienhsu.github.io.git" # you code r
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Writing to reach you."
+sidebar-about-description: "海不辞水，故能成其大；山不辞土石，故能成其高。"
 sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
