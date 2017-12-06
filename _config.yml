@@ -1,7 +1,7 @@
 # Site settings
 title: 龙城小筑
 SEOTitle: 龙城小筑 BLOG
-header-img: img/lc_autumn_home.jpg
+header-img: img/lc_winter_home.jpg
 email: happyfun365@126.com
 description: "Writing to reach you."
 keyword: "龙城的博客, lucienhsu, 龙城小筑, 龙城"
@@ -18,12 +18,12 @@ sidebar-avatar: /img/lucienhsu_pic_eyes.jpg      # use absolute URL, seeing it's
 
 # SNS settings
 RSS: false
-# weibo_username:     
-# zhihu_username:     
+# weibo_username:
+# zhihu_username:
 github_username:    lucienhsu
-# facebook_username:  
-# jianshu_username:   
-# twitter_username:   
+# facebook_username:
+# jianshu_username:
+# twitter_username:
 
 
 
