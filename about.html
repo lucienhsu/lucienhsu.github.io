@@ -71,17 +71,17 @@ header-img: "img/lc_about.jpg"
     function _render(){
         var _hash = window.location.hash;
         // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $zh.style.display = "none";
+        // if(_hash == "#en"){
+            // $select.selectedIndex = 1;
+            // $en.style.display = "block";
+            // $zh.style.display = "none";
         // zh by default
-        }else{
+        // }else{
             // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
+            // $select.selectedIndex = 0;
             $zh.style.display = "block";
             $en.style.display = "none";
-        }
+        // }
     }
 
     // handle select change
