@@ -40,6 +40,8 @@ FindBugs解决方案。
     import java.util.HashMap;
     import java.util.Map;
     
+    ...
+    
     public static final Map<String, Object> ENGIN_DATATYPE;
     static {
         Map<String, Object> aMap = new HashMap();
