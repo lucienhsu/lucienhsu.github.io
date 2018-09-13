@@ -34,26 +34,24 @@ FindBugs解决方案。
 ### Field is a mutable collection    
 - 官方描述  
 > A mutable collection instance is assigned to a final static field, thus can be changed by malicious code or by accident from another package. Consider wrapping this field into Collections.unmodifiableSet/List/Map/etc. to avoid this vulnerability.
-- [解决方案](https://blog.csdn.net/ai_xiangjuan/article/details/78248694)   
+- [解决方案](https://blog.csdn.net/ai_xiangjuan/article/details/78248694)       
 ```java
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
-...
-
-public static final Map<String, Object> ENGIN_DATATYPE;
-static {
-    Map<String, Object> aMap = new HashMap();
-    aMap.put("Number", "NUMBER,FLOAT,DOUBLE,DECIMAL,BINARY_FLOAT,BINARY_DOUBLE");
-    aMap.put("String", "STRING,VARCHAR,CHAR,NCHAR,VARCHAR2,NVARCHAR2");
-    aMap.put("Date", "DATE");
-    aMap.put("Boolean", "BOOLEAN");
-    aMap.put("Integer", "INTEGER,TINYINT,SMALLINT,MEDIUMINT,INT");
-    aMap.put("BigNumber", "BIGNUMBER,BIGINT");
-    aMap.put("Binary", "BINARY");
-    aMap.put("Timestamp", "TIMESTAMP,DATETIME");
-    aMap.put("Internet Address", "INTERNET ADDRESS");
-    ENGIN_DATATYPE = Collections.unmodifiableMap(aMap);
-}
+    import java.util.Collections;
+    import java.util.HashMap;
+    import java.util.Map;
+    
+    public static final Map<String, Object> ENGIN_DATATYPE;
+    static {
+        Map<String, Object> aMap = new HashMap();
+        aMap.put("Number", "NUMBER,FLOAT,DOUBLE,DECIMAL,BINARY_FLOAT,BINARY_DOUBLE");
+        aMap.put("String", "STRING,VARCHAR,CHAR,NCHAR,VARCHAR2,NVARCHAR2");
+        aMap.put("Date", "DATE");
+        aMap.put("Boolean", "BOOLEAN");
+        aMap.put("Integer", "INTEGER,TINYINT,SMALLINT,MEDIUMINT,INT");
+        aMap.put("BigNumber", "BIGNUMBER,BIGINT");
+        aMap.put("Binary", "BINARY");
+        aMap.put("Timestamp", "TIMESTAMP,DATETIME");
+        aMap.put("Internet Address", "INTERNET ADDRESS");
+        ENGIN_DATATYPE = Collections.unmodifiableMap(aMap);
+    }
 ```
