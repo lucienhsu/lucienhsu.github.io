@@ -16,7 +16,7 @@ FindBugs解决方案。
 
 # 参考
 1. [官网手册](http://findbugs.sourceforge.net/bugDescriptions.html)
-1. [用FindBugs分析代码漏洞](https://www.cnblogs.com/hyddd/archive/2009/02/13/1390362.html)
+2. [用FindBugs分析代码漏洞](https://www.cnblogs.com/hyddd/tag/hyddd%E7%9A%84FindBugs%E5%88%86%E6%9E%90%E8%AE%B0%E5%BD%95/default.html?page=1)
 
 # 正文    
  
