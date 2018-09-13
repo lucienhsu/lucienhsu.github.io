@@ -54,6 +54,6 @@ FindBugs解决方案。
         aMap.put("Binary", "BINARY");
         aMap.put("Timestamp", "TIMESTAMP,DATETIME");
         aMap.put("Internet Address", "INTERNET ADDRESS");
-        ENGIN_DATATYPE = Collections.unmodifiableMap(aMap);
+        ENGIN_DATATYPE = Collections.unmodifiableMap(aMap); // 创建不可变集合
     }
 ```
