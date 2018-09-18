@@ -33,3 +33,8 @@ Temporary Items
 
 # debug file
 _site
+.idea/lucienhsu.github.io.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
