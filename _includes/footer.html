@@ -289,7 +289,7 @@
 {% if site.Jekyll-Search %}
 <div class="cb-search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px;
       opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
-    <input type="text" class="form-control cb-search-content" id="cb-search-content" style="position: fixed; top: 60px" placeholder="文章标题 日期 标签" >
+    <input type="text" class="form-control cb-search-content" id="cb-search-content" style="position: fixed; top: 60px" placeholder="文章标题 or 标签" >
     <div style="position: fixed; top: 16px; right: 16px;">
         <img src="/myPlugins/search/img/cb-close.png"  id="cb-close-btn"/>
     </div>
@@ -297,7 +297,7 @@
 <div style="position: fixed; right: 16px; bottom: 20px;">
     <img src="/myPlugins/search/img/cb-search.png"  id="cb-search-btn"  title="双击ctrl试一下"/>
 </div>
-<link rel="stylesheet" href="{{ "/myPlugins/search/css/cb-search.css" | prepend: site.baseurl }}">
+<link rel="stylesheet" href="{{ "/myPlugins/search/css/cb-search.min.css" | prepend: site.baseurl }}">
 <script src="{{ "/myPlugins/search/js/bootstrap3-typeahead.min.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/myPlugins/search/js/cb-search.js" | prepend: site.baseurl }}"></script>
 {% endif %}
