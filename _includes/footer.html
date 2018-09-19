@@ -227,10 +227,25 @@
     function generateCatalog (selector) {
         var P = $('div.post-container'),a,n,t,l,i,c;
         a = P.find('h1,h2,h3,h4,h5,h6');
+        var headerIndex = [0,0];  /*for h2,h3*/
+
         a.each(function () {
             n = $(this).prop('tagName').toLowerCase();
             i = "#"+$(this).prop('id');
             t = $(this).text();
+            // 给文章的各级标题前添加段落编号
+            if({{ site.headerNumber }}){
+                if(n == "h1"){
+                    t = "# "+ t;
+                }else if(n == "h2"){
+                    t = (++headerIndex[0])+'. ' + t;
+                    headerIndex[1]=0;
+                }else if (n == "h3"){
+                    t = "&emsp;" + headerIndex[0] + '.' + (++headerIndex[1]) + '. ' + t;
+                }else{
+                    t = "&emsp;&emsp;" + t;
+                }
+            }
             c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
             l = $('<li class="'+n+'_nav"></li>').append(c);
             $(selector).append(l);
@@ -275,18 +290,30 @@
 <div class="cb-search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px;
       opacity: 0.95; background-color: #111111; z-index: 9999; display: none;">
     <input type="text" class="form-control cb-search-content" id="cb-search-content" style="position: fixed; top: 60px" placeholder="文章标题 日期 标签" >
-
     <div style="position: fixed; top: 16px; right: 16px;">
-        <img src="/search/img/cb-close.png"  id="cb-close-btn"/>
+        <img src="/myPlugins/search/img/cb-close.png"  id="cb-close-btn"/>
     </div>
 </div>
-
 <div style="position: fixed; right: 16px; bottom: 20px;">
-    <img src="/search/img/cb-search.png"  id="cb-search-btn"  title="双击ctrl试一下"/>
+    <img src="/myPlugins/search/img/cb-search.png"  id="cb-search-btn"  title="双击ctrl试一下"/>
 </div>
+<link rel="stylesheet" href="{{ "/myPlugins/search/css/cb-search.css" | prepend: site.baseurl }}">
+<script src="{{ "/myPlugins/search/js/bootstrap3-typeahead.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/myPlugins/search/js/cb-search.js" | prepend: site.baseurl }}"></script>
+{% endif %}
 
-<link rel="stylesheet" href="{{ "/search/css/cb-search.css" | prepend: site.baseurl }}">
 
-<script src="{{ "/search/js/bootstrap3-typeahead.min.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/search/js/cb-search.js" | prepend: site.baseurl }}"></script>
+<!-- 给文章的各级标题前添加段落编号 -->
+{% if site.headerNumber %}
+<script>
+    var headerIndex = [0,0];  /*for h2,h3*/
+    $('div.post-container').find('h2:not(blockquote h2),h3:not(blockquote h3)').each(function(index, el) {
+      if ($(el).is('H2')) {
+        $(el).text( (++headerIndex[0])+'. '+$(el).text());
+        headerIndex[1]=0;
+      }else if ($(el).is('H3')) {
+        $(el).text( headerIndex[0]+'.'+ (++headerIndex[1])+'. '+$(el).text());
+      }
+    });
+</script>
 {% endif %}
