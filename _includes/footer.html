@@ -317,3 +317,26 @@
     });
 </script>
 {% endif %}
+
+
+<!-- 给文章的各级标题前添加段落编号 -->
+{% if site.lightbox %}
+<link rel="stylesheet" href="{{ "/myPlugins/lightbox/lightbox.min.css" | prepend: site.baseurl }}">
+<script src="{{ "/myPlugins/lightbox/lightbox.min.js" | prepend: site.baseurl }}"></script>
+<script>
+    $('div.post-container img').each(function(index, val) {
+        var link = $('<a></a>').attr({
+        'rel': 'lightbox',
+        'href': $(val).attr('src'),
+        'data-lightbox':"roadtrip"
+        });
+        /* if image has title */
+        if ($(val).siblings('em')!=null) {
+            link.attr('title', $(val).next('em').html());
+        }
+        $(val).parent().prepend(link);
+        link.append($(val)); /* move img inside link */
+        $(val).addClass('img-fluid'); /* add BS4 image fluid class */
+    });
+</script>
+{% endif %}

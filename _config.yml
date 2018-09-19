@@ -132,3 +132,6 @@ Jekyll-Search: true             # 是否启用jekyll博客搜索插件
 
 # 给文章的各级标题前添加段落编号
 headerNumber: true
+
+# lightbox 图片预览插件
+lightbox: true
