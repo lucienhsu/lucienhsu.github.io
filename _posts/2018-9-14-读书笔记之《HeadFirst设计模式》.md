@@ -5,6 +5,7 @@ subtitle: 浅谈设计模式
 date: 2018-9-14
 author: lucienhsu
 header-img: img/post-bg-2018-9-19-design.jpg
+header-mask: 0.5
 catalog: true
 tags:
   - 设计模式

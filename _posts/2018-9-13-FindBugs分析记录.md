@@ -5,6 +5,7 @@ subtitle: FindBugs解决方案
 date: 2018-9-13
 author: lucienhsu
 header-img: img/post-bg-2018-9-11-FindBugs.jpg
+header-mask: 0.5
 catalog: true
 tags:
   - FindBugs

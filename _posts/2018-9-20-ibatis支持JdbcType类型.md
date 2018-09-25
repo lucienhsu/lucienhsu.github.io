@@ -4,7 +4,8 @@ title: ibatis支持JdbcType类型
 subtitle: ibatis支持JdbcType类型
 date: 2018-9-20
 author: lucienhsu
-header-img: img/post-bg-2017-11-09-roket.jpg
+header-img: img/post-bg-default.jpg
+header-mask: 0.5
 catalog: true
 tags:
   - mybatis
