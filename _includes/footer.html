@@ -234,7 +234,7 @@
             i = "#"+$(this).prop('id');
             t = $(this).text();
             // 给文章的各级标题前添加段落编号
-            if({{ site.headerNumber }}){
+            if({{ site.headerNumber4Catalog }}){
                 if(n == "h1"){
                     t = "# "+ t;
                 }else if(n == "h2"){
@@ -304,7 +304,7 @@
 
 
 <!-- 给文章的各级标题前添加段落编号 -->
-{% if site.headerNumber %}
+{% if site.headerNumber4Content %}
 <script>
     var headerIndex = [0,0];  /*for h2,h3*/
     $('div.post-container').find('h2:not(blockquote h2),h3:not(blockquote h3)').each(function(index, el) {
