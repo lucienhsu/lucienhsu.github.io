@@ -8,8 +8,7 @@ header-img: img/post-bg-default.jpg
 header-mask: 0.5
 catalog: true
 tags:
-  - mybatis
-  - ibatis
+  - Mybatis
 ---
 
 > 直接看JdbcType类

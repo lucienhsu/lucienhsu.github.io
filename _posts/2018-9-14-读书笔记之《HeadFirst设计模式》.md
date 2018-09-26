@@ -9,7 +9,8 @@ header-mask: 0.5
 catalog: true
 tags:
   - 设计模式
-  - java
+  - Java
+  - Reading
 ---
 
 # 前言
