@@ -25,17 +25,17 @@ header-mask: 0.5
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-preview">
-                <h1>Stickie</h1>
-                <ul class="posts">
+                <h4>Stickie</h4>
+                <ul>
                     {% for post in site.posts %}
                         {% if post.stickie %}
-                            <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+                            <li><span style="color: #aaa;font-family: Monaco, "Courier New", monospace;font-size: 80%;">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
 
-                <h1>Reading</h1>
-                <ul class="posts">
+                <h4>Reading</h4>
+                <ul>
                     {% for post in site.posts %}
                         {% assign isReading = false %}
                         {% for tag in post.tags %}
@@ -44,13 +44,13 @@ header-mask: 0.5
                             {% endif %}
                         {% endfor %}
                         {% if isReading and post.stickie != true %}
-                            <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+                            <li><span style="color: #aaa;font-family: Monaco, "Courier New", monospace;font-size: 80%;">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
 
-                <h1>Others</h1>
-                <ul class="posts">
+                <h4>Others</h4>
+                <ul>
                     {% for post in site.posts %}
                         {% assign isReading = false %}
                         {% for tag in post.tags %}
@@ -59,7 +59,7 @@ header-mask: 0.5
                             {% endif %}
                         {% endfor %}
                         {% if isReading == false and post.stickie != true %}
-                            <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+                            <li><span style="color: #aaa;font-family: Monaco, "Courier New", monospace;font-size: 80%;">{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
                         {% endif %}                    
                     {% endfor %}
                 </ul>
