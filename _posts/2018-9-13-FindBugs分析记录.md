@@ -30,7 +30,7 @@ FindBugs解决方案。
 - 官方描述  
 > This code stores a reference to an externally mutable object into the internal representation of the object.  If instances are accessed by untrusted code, and unchecked changes to the mutable object would compromise security or other important properties, you will need to do something different. Storing a copy of the object is better approach in many situations.
 - [解决方案](https://www.cnblogs.com/hyddd/articles/1391118.html)
-> ![mark](http://pa99q7scc.bkt.clouddn.com/blog/180913/9HajKbAdgK.png?imageslim)
+> ![解决方案](http://pa99q7scc.bkt.clouddn.com/blog/180913/9HajKbAdgK.png?imageslim)
 
 ## Field is a mutable collection    
 - 官方描述  
