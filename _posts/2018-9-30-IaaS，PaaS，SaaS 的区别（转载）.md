@@ -14,4 +14,4 @@ tags:
 
 > [原文地址](http://www.ruanyifeng.com/blog/2017/07/iaas-paas-saas.html)
 
-![mark](http://pa99q7scc.bkt.clouddn.com/blog/180930/hELdJBmLLE.png?imageslim)
+![mark](https://github.com/lucienhsu/lucienhsu.github.io/raw/master/img/post/IaaSPaaSaaS的区别.png)
