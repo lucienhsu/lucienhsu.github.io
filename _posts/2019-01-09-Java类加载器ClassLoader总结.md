@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java类加载器ClassLoader总结
-subtitle: 转载：Java类加载器ClassLoader总结
+subtitle: 死磕系列
 date: 2019-01-09
 author: lucienhsu
 header-img: img/post-bg-default.jpg
@@ -22,17 +22,16 @@ tags:
 
 # java类装载器
 JDK 默认提供了如下几种ClassLoader
-1. Bootstrp loader
-Bootstrp加载器是用C++语言写的，它是在Java虚拟机启动后初始化的，它主要负责加载%JAVA_HOME%/jre/lib,-Xbootclasspath参数指定的路径以及%JAVA_HOME%/jre/classes中的类。
+1. Bootstrp loader  
+Bootstrp加载器是用C++语言写的，它是在Java虚拟机启动后初始化的，它主要负责加载`%JAVA_HOME%/jre/lib`,`-Xbootclasspath`参数指定的路径以及`%JAVA_HOME%/jre/classes`中的类。
 2. ExtClassLoader  
-Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置为Bootstrp loader.ExtClassLoader是用Java写的，具体来说就是 sun.misc.Launcher$ExtClassLoader，ExtClassLoader主要加载%JAVA_HOME%/jre/lib/ext，此路径下的所有classes目录以及java.ext.dirs系统变量指定的路径中类库。
-3. AppClassLoader 
-Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 sun.misc.Launcher$AppClassLoader，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
+Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置为Bootstrp loader.ExtClassLoader是用Java写的，具体来说就是 `sun.misc.Launcher$ExtClassLoader`，ExtClassLoader主要加载`%JAVA_HOME%/jre/lib/ext`，此路径下的所有classes目录以及java.ext.dirs系统变量指定的路径中类库。
+3. AppClassLoader   
+Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 `sun.misc.Launcher$AppClassLoader`，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
 
 综上所述，它们之间的关系可以通过下图形象的描述：
 
-
-为什么要有三个类加载器，一方面是分工，各自负责各自的区块，另一方面为了实现委托模型。
+> 为什么要有三个类加载器，一方面是分工，各自负责各自的区块，另一方面为了实现委托模型。
 
 # 类加载器之间是如何协调工作的
 
@@ -42,30 +41,23 @@ Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将
 
 ``` Java
 Public class Test{
- 
     Public static void main(String[] arg){
- 
-      ClassLoader c  = Test.class.getClassLoader();  //获取Test类的类加载器
- 
+        //获取Test类的类加载器
+        ClassLoader c  = Test.class.getClassLoader();  
         System.out.println(c); 
- 
-      ClassLoader c1 = c.getParent();  //获取c这个类加载器的父类加载器
- 
+        //获取c这个类加载器的父类加载器
+        ClassLoader c1 = c.getParent();  
         System.out.println(c1);
- 
-      ClassLoader c2 = c1.getParent();//获取c1这个类加载器的父类加载器
- 
+        //获取c1这个类加载器的父类加载器
+        ClassLoader c2 = c1.getParent();
         System.out.println(c2);
- 
   }
- 
 }
 
 // 运行结果：
 ……AppClassLoader……
 ……ExtClassLoader……
 Null
-
 ```
 可以看出Test是由AppClassLoader加载器加载的，AppClassLoader的Parent 加载器是 ExtClassLoader,但是ExtClassLoader的Parent为 null 是怎么回事呵，朋友们留意的话，前面有提到Bootstrap Loader是用C++语言写的，依java的观点来看，逻辑上并不存在Bootstrap Loader的类实体，所以在java程序代码里试图打印出其内容时，我们就会看到输出为null。
 
@@ -132,8 +124,8 @@ Java装载类使用“全盘负责委托机制”。“全盘负责”是指当�
 3. 如果类库提供了 SPI 接口，并且利用线程上下文类加载器来加载 SPI 实现的 Java 类，有可能会找不到 Java 类。如果出现了 NoClassDefFoundError异常，首先检查当前线程的上下文类加载器是否正确。通过 Thread.currentThread().getContextClassLoader()就可以得到该类加载器。该类加载器应该是该模块对应的类加载器。如果不是的话，可以首先通过 class.getClassLoader()来得到模块对应的类加载器，再通过 Thread.currentThread().setContextClassLoader()来设置当前线程的上下文类加载器。
 
 # 参考
-1. http://blog.csdn.net/zhoudaxia/article/details/35897057
-2. http://blog.jobbole.com/96145/
-3. http://my.oschina.net/aminqiao/blog/262601
+1. [http://blog.csdn.net/zhoudaxia/article/details/35897057](http://blog.csdn.net/zhoudaxia/article/details/35897057)
+2. [http://blog.jobbole.com/96145/](http://blog.jobbole.com/96145/)
+3. [http://my.oschina.net/aminqiao/blog/262601](http://my.oschina.net/aminqiao/blog/262601)
 
-> 转载：https://www.cnblogs.com/doit8791/p/5820037.html
+> 转载：[https://www.cnblogs.com/doit8791/p/5820037.html](https://www.cnblogs.com/doit8791/p/5820037.html)
