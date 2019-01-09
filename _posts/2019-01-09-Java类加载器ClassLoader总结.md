@@ -30,6 +30,7 @@ Bootstrp loader加载ExtClassLoader,并且将ExtClassLoader的父加载器设置
 Bootstrp loader加载完ExtClassLoader后，就会加载AppClassLoader,并且将AppClassLoader的父加载器指定为 ExtClassLoader。AppClassLoader也是用Java写成的，它的实现类是 `sun.misc.Launcher$AppClassLoader`，另外我们知道ClassLoader中有个getSystemClassLoader方法,此方法返回的正是AppclassLoader.AppClassLoader主要负责加载classpath所指定的位置的类或者是jar文档，它也是Java程序默认的类加载器。
 
 综上所述，它们之间的关系可以通过下图形象的描述：
+![FAB法则](https://github.com/lucienhsu/lucienhsu.github.io/raw/master/img/post/java-classloader.jpg) 
 
 > 为什么要有三个类加载器，一方面是分工，各自负责各自的区块，另一方面为了实现委托模型。
 
